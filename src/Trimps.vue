@@ -2,8 +2,13 @@
 </template>
 
 <script>
+import PlayerGather from 'widgets/PlayerGather'
+
 export default {
-  name: 'trimps',
+  name:       'trimps',
+  components: {
+    PlayerGather,
+  },
   data() {
     return {
       msg: 'Welcome to Your Vue.js App',

@@ -1,9 +1,11 @@
 <template>
-  <div :id='type' class="playerGather">
+  <div :id='type' class="playerGather" v-bind:class="{ playerGatherSm: isSmall }">
     <span class="title text-capitalize">{{ctype}}</span>
     <br/>
     <template v-if="hasMax">
-      <span class="ownedArea bdHover" @click="getMaxResources()"><span :id='type+"Owned"'>0</span> / <span :id='type+"Max"'></span></span>
+      <span class="ownedArea bdHover" @click="getMaxResources()">
+        <span :id='type+"Owned"'>0</span> / <span :id='type+"Max"'></span>
+      </span>
       <br/>
       <div class="progress resProgress">
         <div class="progress-bar percentColorBlue" :id='type+"Bar"' role="progressbar">
@@ -15,7 +17,9 @@
       <span class="ownedArea"><span :id='type+"Owned"'>0</span></span>
       <br/>
     </template>
-    <div class="row collectRow">
+    <span v-if="isSmall && isPh" :class='type+"Ph"' :id='type+"Ph"' style="display: none"></span>
+    <span v-else-if="isSmall && !isPh" class="psText sizeSecRegular pointer noselect" :id='type+"Ps"' style="display: none" @click="getPsString()">+0/sec</span>
+    <div v-else class="row collectRow">
       <div class="col-xs-6">
         <div :id='type+"CollectBtn"' class="workBtn workColorOff pointer noselect" @click="setGather()">{{verb}}</div>
       </div>
@@ -31,7 +35,7 @@ import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
 
 export default {
   name:  'player-gather',
-  props: ['type', 'ctype', 'verb', 'hasMax'],
+  props: ['type', 'ctype', 'verb', 'hasMax', 'isSmall', 'isPh'],
   data() {
     return {}
   },

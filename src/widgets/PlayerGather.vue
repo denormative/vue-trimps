@@ -17,7 +17,7 @@
       <span class="ownedArea"><span :id='type+"Owned"'>0</span></span>
       <br/>
     </template>
-    <span v-if="isSmall && isPh" :class='type+"Ph"' :id='type+"Ph"' style="display: none"></span>
+    <span v-if="isSmall && isPh" :class='type+"Ph"' :id='type+"Ph"'></span>
     <span v-else-if="isSmall && !isPh" class="psText sizeSecRegular pointer noselect" :id='type+"Ps"' style="display: none" @click="getPsString()">+0/sec</span>
     <div v-else class="row collectRow">
       <div class="col-xs-6">

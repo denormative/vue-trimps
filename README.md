@@ -1,6 +1,6 @@
-# vue-rpg
+# vue-trimps
 
-> vue-rpg
+> vue-trimps
 
 ## Build Setup
 

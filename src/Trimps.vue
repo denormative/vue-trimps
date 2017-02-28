@@ -2,7 +2,7 @@
 </template>
 
 <script>
-import PlayerGather from 'widgets/PlayerGather'
+import PlayerGather from '@/widgets/PlayerGather'
 
 export default {
   name:       'trimps',
